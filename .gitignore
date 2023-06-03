@@ -24,3 +24,9 @@
 /.idea/
 /.vscode/
 ###< docker ###
+
+###> pentatrion/vite-bundle ###
+/node_modules/
+/public/build/
+/package-lock.json
+###< pentatrion/vite-bundle ###
