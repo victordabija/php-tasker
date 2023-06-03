@@ -1,4 +1,3 @@
-
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -7,17 +6,24 @@
 /public/bundles/
 /var/
 /vendor/
-/composer.lock
 /.env.test
 /symfony.lock
-/package-lock.json
-/node_modules
+/composer.lock
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+
+###> docker ###
+/docker/data
+###< docker ###
+
+###> editors ###
+/.idea/
+/.vscode/
+###< docker ###
 
 ###> symfony/phpunit-bridge ###
 .phpunit.result.cache
