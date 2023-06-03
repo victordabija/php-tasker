@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+    php-tasker:
+        container_name: php-tasker
+        image: php:7.4-apache
+        restart: unless-stopped
+        volumes:
+            -   ../:/var/www/html
+            -   ./config/vhosts:/etc/apache2/sites-enabled
+        ports:
+            - "1010:80"
+        networks:
+            - default
+
+    database:
+        container_name: database
+        image: mysql:5.7
+        volumes:
+            - ./data/mysql:/var/lib/mysql
+        command: --default-authentication-plugin=mysql_native_password --explicit_defaults_for_timestamp
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: "php_tasker"
+            MYSQL_USER: "php-tasker-user"
+            MYSQL_PASSWORD: "php-tasker-password"
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        ports:
+            - "3306:3306"
+        networks:
+            - default
+
+#    mailer:
+#        container_name: mailer
+#        restart: unless-stopped
+#        image: mailhog/mailhog
+#        ports:
+#            - "1025:1025" # smtp server
+#            - "8025:8025" # web ui
+#        depends_on:
+#            - php-tasker
+#        networks:
+#            - default
+
+networks:
+    default:
+        driver: bridge
