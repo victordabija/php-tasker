@@ -5,6 +5,8 @@ services:
         container_name: php-tasker
         image: php:7.4-apache
         restart: unless-stopped
+        build:
+            context: .
         volumes:
             -   ../:/var/www/html
             -   ./config/vhosts:/etc/apache2/sites-enabled

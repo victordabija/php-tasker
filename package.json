@@ -1,10 +1,10 @@
 {
+    "name": "php-tasker",
     "private": true,
     "scripts": {
         "dev": "vite",
         "build": "vite build"
     },
-    "license": "UNLICENSED",
     "devDependencies": {
         "vite": "^4.0",
         "vite-plugin-symfony": "^0.7.2"
